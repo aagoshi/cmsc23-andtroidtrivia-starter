@@ -31,29 +31,38 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/button_padding"
             android:paddingEnd="@dimen/button_padding"
-            android:text="Next Match"
+            android:text="@string/next_match"
             android:textColor="@color/youWinDark"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/youWinImage" />
+            app:layout_constraintTop_toBottomOf="@+id/win_message" />
 
         <ImageView
-            android:id="@+id/youWinImage"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/game_over_height"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginBottom="@dimen/vertical_margin"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/nextMatchButton"
+            android:id="@+id/winpic"
+            android:layout_width="224dp"
+            android:layout_height="357dp"
+            android:src="@drawable/winpic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/you_win" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/win_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:text="@string/win_message"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textSize="@dimen/endgame_textsize"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/winpic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

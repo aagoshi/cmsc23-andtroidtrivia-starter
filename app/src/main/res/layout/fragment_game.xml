@@ -24,114 +24,264 @@
         <variable
             name="game"
             type="com.example.android.navigation.GameFragment" />
+
+        <variable
+            name="infoget"
+            type="com.example.android.navigation.Infoget" />
+
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameLayout"
+        <TextView
+            android:id="@+id/nickname_text"
+            style="@style/NameStyle"
+            android:text="@={infoget.nickname}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent2"
+            android:paddingBottom="@dimen/small_padding"
+            android:textAlignment="center"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints" />
 
-            <ImageView
-                android:id="@+id/questionImage"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/image_header_height"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/questionText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:srcCompat="@drawable/android_category_simple" />
+        <!--GAME PROPER-->
 
-            <TextView
-                android:id="@+id/questionText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:fontFamily="sans-serif"
-                android:text="@{game.currentQuestion.text}"
-                android:textSize="@dimen/question_text_size"
-                android:textStyle="bold"
-                android:typeface="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionImage"
-                tools:text="What color is the Android mascot?" />
+        <TextView
+            android:id="@+id/lightbox1"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox2"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <RadioGroup
-                android:id="@+id/questionRadioGroup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
-                android:animateLayoutChanges="true"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionText">
+        <TextView
+            android:id="@+id/lightbox2"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox1"
+            app:layout_constraintTop_toBottomOf="@+id/nickname_text" />
 
-                <RadioButton
-                    android:id="@+id/firstAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:checked="true"
-                    android:text="@{game.answers[0]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Blue" />
+        <TextView
+            android:id="@+id/lightbox3"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox2"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox2" />
 
-                <RadioButton
-                    android:id="@+id/secondAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[1]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Green" />
+        <TextView
+            android:id="@+id/lightbox4"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox3" />
 
-                <RadioButton
-                    android:id="@+id/thirdAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[2]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Yellow" />
+        <TextView
+            android:id="@+id/lightbox5"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox6"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/fourthAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{game.answers[3]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Red" />
-            </RadioGroup>
+        <TextView
+            android:id="@+id/lightbox6"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox7"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox5"
+            app:layout_constraintTop_toBottomOf="@+id/lightbox2" />
 
-            <Button
-                android:id="@+id/submitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
-                android:text="@string/submit_button"
-                android:textSize="@dimen/button_text_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionRadioGroup" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/lightbox7"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox6"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox6" />
+
+        <TextView
+            android:id="@+id/lightbox8"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox7" />
+
+        <TextView
+            android:id="@+id/lightbox9"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox10"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/lightbox10"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox11"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox9"
+            app:layout_constraintTop_toBottomOf="@+id/lightbox6" />
+
+        <TextView
+            android:id="@+id/lightbox11"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox10"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox10" />
+
+        <TextView
+            android:id="@+id/lightbox12"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox11" />
+
+        <TextView
+            android:id="@+id/lightbox13"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox14"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/lightbox14"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox13"
+            app:layout_constraintTop_toBottomOf="@+id/lightbox10" />
+
+        <TextView
+            android:id="@+id/lightbox15"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox14"
+            app:layout_constraintEnd_toStartOf="@+id/lightbox16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox14" />
+
+        <TextView
+            android:id="@+id/lightbox16"
+            style="@style/lightbox1"
+            android:layout_width="@dimen/box_size"
+            android:layout_height="@dimen/box_size"
+            android:text="@string/lightboxtext"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lightbox15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lightbox15" />
+
+        <Button
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/larger_space"
+            android:text="@string/retry"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/click_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lightbox15" />
+
+        <TextView
+            android:id="@+id/click_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_margin"
+            android:text="@string/clicks"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>

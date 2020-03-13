@@ -25,29 +25,13 @@
         android:layout_height="match_parent"
         android:background="@color/gameOverBackground">
 
-        <ImageView
-            android:id="@+id/gameOverFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="362dp"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginBottom="8dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/tryAgainButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:srcCompat="@drawable/try_again" />
-
         <Button
             android:id="@+id/tryAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/vertical_margin"
-            android:layout_marginTop="@dimen/vertical_margin"
-            android:layout_marginEnd="@dimen/vertical_margin"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="@dimen/button_padding"
+            android:layout_marginBottom="@dimen/button_padding"
             android:paddingStart="@dimen/button_padding"
             android:paddingEnd="@dimen/button_padding"
             android:text="@string/try_again"
@@ -56,7 +40,35 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gameOverFragment" />
+            app:layout_constraintTop_toBottomOf="@+id/lose_message" />
+
+        <ImageView
+            android:id="@+id/losepic"
+            android:layout_width="185dp"
+            android:layout_height="531dp"
+            android:src="@drawable/losepic"
+            app:layout_constraintBottom_toTopOf="@+id/lose_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lose_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/lose_message"
+            android:textAlignment="center"
+            android:textSize="@dimen/endgame_textsize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tryAgainButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/losepic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

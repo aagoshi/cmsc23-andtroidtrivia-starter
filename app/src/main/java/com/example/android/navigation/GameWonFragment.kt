@@ -34,7 +34,7 @@ class GameWonFragment : Fragment() {
                 inflater, R.layout.fragment_game_won, container, false)
 
         // Add OnClick Handler for Next Match button
-        binding.nextMatchButton.setOnClickListener{view: View-> view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)}
+        binding.nextMatchButton.setOnClickListener{view: View-> view.findNavController().navigate(R.id.action_gameWonFragment_to_titleFragment)}
 
         return binding.root
     }

@@ -21,7 +21,7 @@ class TitleFragment : Fragment() {
 
         //The complete onClickListener with Navigation
         binding.playButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment2)
+            view.findNavController().navigate(R.id.action_titleFragment_to_name3)
         }
 
         setHasOptionsMenu(true)
@@ -31,11 +31,11 @@ class TitleFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.options_menu, menu)
+        inflater.inflate(R.menu.options_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!,
+        return NavigationUI.onNavDestinationSelected(item,
                 view!!.findNavController())
                 || super.onOptionsItemSelected(item)
     }
